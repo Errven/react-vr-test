@@ -3,14 +3,13 @@
 // If you want to modify your application, start in "index.vr.js"
 
 // Auto-generated content.
-import {VRInstance} from 'react-vr-web';
+import { VRInstance } from 'react-vr-web';
 
 function init(bundle, parent, options) {
   const vr = new VRInstance(bundle, 'TestApplication', parent, {
-    // Add custom options here
     ...options,
   });
-  vr.render = function() {
+  vr.render = function () {
     // Any custom behavior you want to perform on each frame goes here
   };
   // Begin the animation loop
