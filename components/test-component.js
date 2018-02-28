@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, VrButton, Animated } from "react-vr";
 import { Star } from "./star";
-
+import { range, map } from 'ramda';
 
 class TestComponent extends Component {
   constructor() {
@@ -20,13 +20,9 @@ class TestComponent extends Component {
     ).start();
   }
 
-  renderStars = (count) => {
-    const stars = [];
-    for (let i = 1; i < count; i++) {
-      stars.push(i);
-    }
-    return stars;
-  };
+  generateStars = count => map(this.renderStar, range(1, count));
+
+  renderStar = i => <Star key={i}/>;
 
   render() {
     return (
@@ -60,7 +56,7 @@ class TestComponent extends Component {
           }}
         >
           {
-            this.renderStars(200).map((i) => <Star key={i}/>)
+            this.generateStars(200)
           }
         </View>
       </View>
